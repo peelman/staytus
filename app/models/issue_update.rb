@@ -48,7 +48,9 @@ class IssueUpdate < ActiveRecord::Base
       self.issue.state = self.state
     end
     
-    if self.next_update_at
+    if self.issue.state = "resolved"
+      self.issue.next_update_at = DateTime.now()
+    elsif self.next_update_at
       self.issue.next_update_at = self.next_update_at
     else
       self.issue.next_update_at = DateTime.now()
