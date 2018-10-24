@@ -8,7 +8,7 @@ Full details can be seen below. We will continue to post updated whenever they b
 
 * **Posted at:** {{issue.created_at}}
 * **ETR:** {{issue.estimated_time_to_recovery}}
-* **Next Update At:** {{distance_of_time_in_words(DateTime.now(), issue.next_update_at)}} ({{issue.next_update_at.to_formatted_s(:short)}})
+* **Next Update At:** {{issue.next_update_at}})
 * **Affected services:** {{issue.services.to_sentence | No specific services}}
 
 **{{update.state.capitalize}}** - {{update.text}}

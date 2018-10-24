@@ -12,7 +12,7 @@
 
     %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :estimated_time_to_recovery, "ETR"
-      %dd.fieldSet__input= f.text_field :estimated_time_to_recovery, :class => 'textInput', :placeholder => Issue::ETR_TEXT
+      %dd.fieldSet__input= f.text_field :estimated_time_to_recovery, :required => true, :class => 'textInput', :placeholder => Issue::ETR_TEXT
 
     %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :start_at_as_string, "Next Update At (#{site.time_zone} time)"

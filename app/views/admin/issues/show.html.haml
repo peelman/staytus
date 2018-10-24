@@ -18,7 +18,7 @@
     
   %dl.definition.u-margin-top
     %dt Next Update
-    %dd= "#{distance_of_time_in_words(DateTime.now(), @issue.next_update_at)} (#{@issue.next_update_at.to_formatted_s(:short)})" || "Not Specified"
+    %dd= "#{distance_of_time_in_words_to_now_with_direction(@issue.next_update_at)} (#{@issue.next_update_at.to_formatted_s(:short)})" || "Not Specified"
 
   - unless @issue.services.empty?
     %dl.definition.u-margin-top

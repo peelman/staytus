@@ -1,6 +1,9 @@
 module ApplicationHelper
 
   def distance_of_time_in_words_to_now_with_direction(time)
+    unless time
+      return
+    end
     string = distance_of_time_in_words_to_now(time)
     time > Time.now ? "in #{string}" : "#{string} ago"
   end
