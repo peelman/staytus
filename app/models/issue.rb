@@ -50,8 +50,10 @@ class Issue < ActiveRecord::Base
     string :title
     string :state
     string :identifier
+    string :estimated_time_to_recovery
     string :created_at
     string :updated_at
+    string :next_update_at
     string(:services) { services.map(&:name) }
     relationship :service_status
     relationship :user

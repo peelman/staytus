@@ -30,6 +30,8 @@ class IssueUpdate < ActiveRecord::Base
   after_save :update_base_issue
   after_commit :send_notifications_on_create, :on => :create
 
+  attr_accessor :next_update_at, :estimated_time_to_recovery
+
   florrick do
     string :state
     string :text
@@ -44,6 +46,10 @@ class IssueUpdate < ActiveRecord::Base
   def update_base_issue
     if self.state
       self.issue.state = self.state
+    end
+    
+    if self.next_update_at
+      self.issue.next_update_at = self.next_update_at
     end
     if self.service_status
       self.issue.service_status = self.service_status

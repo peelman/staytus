@@ -11,7 +11,7 @@ class Admin::IssuesController < Admin::BaseController
   end
 
   def show
-    @update = @issue.updates.build(:state => @issue.state, :notify => @issue.notify)
+    @update = @issue.updates.build(:state => @issue.state, :notify => @issue.notify, :estimated_time_to_recovery => @issue.estimated_time_to_recovery, :next_update_at => @issue.next_update_at + 2.hours)
     @updates = @issue.updates.ordered
   end
 

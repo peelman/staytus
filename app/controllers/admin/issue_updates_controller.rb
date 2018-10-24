@@ -29,7 +29,7 @@ class Admin::IssueUpdatesController < Admin::BaseController
   private
 
   def safe_params
-    params.require(:issue_update).permit(:text, :state, :service_status_id, :notify)
+    params.require(:issue_update).permit(:text, :state, :service_status_id, :next_update_at, :notify)
   end
 
 end
