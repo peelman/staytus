@@ -1,0 +1,14 @@
+= form_for [:admin, @slack] do |f|
+  = f.error_messages
+  .fieldSet.u-margin-2x
+    .row
+      .col.col--10
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :webhook_url
+          %dd.fieldSet__input= f.text_field :webhook_url, :class => 'textInput', :autofocus => @slack.new_record?, :required => true
+
+  .formButtons
+    - unless @slack.new_record?
+      .formButtons__secondary= link_to "Delete Service", [:admin, @slack], :class => 'button button--grey button--solid', :method => :delete, :data => {:confirm => "Are you sure you wish to delete this webhook?"}
+    = f.submit "Save Slack", :class => 'button button--solid'
+    = link_to "Cancel", admin_services_path, :class => 'button button--lightGrey'

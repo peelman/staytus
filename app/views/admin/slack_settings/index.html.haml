@@ -1,0 +1,18 @@
+- @active_nav_item = :settings
+- content_for :page_header do
+  %h1.pageHeader__heading.u-margin= @page_title = 'Slack Settings'
+  .pageHeader__button= link_to "Add New Slack Destination", new_admin_slack_setting_path, :class => 'button button--green button--small button--solid'
+
+  %p.u-intro
+    From here you can configure various slack channels that Maintenance & Issue notifications will be sent to.
+
+%table.dataTable
+  %thead
+    %tr
+      %td{:width => '80%'} Slack Destination
+      %td{:width => '20%'}
+  %tbody
+    - for name, channel in @settings
+      %tr
+        %td= "#{setting[:user]}@#{setting[:channel]}"
+        %td.u-align-right= link_to (@templates.include?(name.to_s) ? "Edit" : "Add"), edit_admin_email_template_path(name), :class => 'button button--small'
