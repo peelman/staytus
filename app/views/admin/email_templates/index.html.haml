@@ -15,4 +15,3 @@
       %tr
         %td= template[:name]
         %td.u-align-right= link_to (@templates.include?(name.to_s) ? "Edit" : "Add"), edit_admin_email_template_path(name), :class => 'button button--small'
-

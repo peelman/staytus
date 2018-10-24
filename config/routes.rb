@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :service_statuses
     resources :service_groups
     resources :email_templates, :only => [:index, :edit, :update, :destroy]
+    resources :slack_settings
     resources :api_tokens
 
     #
