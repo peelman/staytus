@@ -50,6 +50,8 @@ class IssueUpdate < ActiveRecord::Base
     
     if self.next_update_at
       self.issue.next_update_at = self.next_update_at
+    else
+      self.issue.next_update_at = DateTime.now()
     end
     if self.service_status
       self.issue.service_status = self.service_status
