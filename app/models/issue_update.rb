@@ -55,6 +55,15 @@ class IssueUpdate < ActiveRecord::Base
     else
       self.issue.next_update_at = DateTime.now()
     end
+
+    if self.issue.state = "resolved"
+      self.issue.estimated_time_to_recovery = "0h"
+    elsif self.estimated_time_to_recovery
+      self.issue.estimated_time_to_recovery = self.estimated_time_to_recovery
+    else
+      self.issue.estimated_time_to_recovery = "Unknown"
+    end
+
     if self.service_status
       self.issue.service_status = self.service_status
     end
