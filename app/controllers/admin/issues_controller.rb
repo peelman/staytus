@@ -45,7 +45,7 @@ class Admin::IssuesController < Admin::BaseController
   private
 
   def safe_params
-    params.require(:issue).permit(:title, :initial_update, :state, :service_status_id, :notify, :service_ids => [])
+    params.require(:issue).permit(:title, :estimated_time_to_recovery, :next_update_at, :initial_update, :state, :service_status_id, :notify, :service_ids => [])
   end
 
 end

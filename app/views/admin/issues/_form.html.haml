@@ -10,6 +10,19 @@
         %dt.fieldSet__label= f.label :initial_update, "Text for the first update"
         %dd.fieldSet__input= f.text_area :initial_update, :class => 'textInput', :placeholder => Issue::INITIAL_UPDATE_TEXT
 
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :estimated_time_to_recovery, "ETR"
+      %dd.fieldSet__input= f.text_field :estimated_time_to_recovery, :class => 'textInput', :placeholder => Issue::ETR_TEXT
+
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :start_at_as_string, "Next Update At (#{site.time_zone} time)"
+      %dd.fieldSet__input
+        .u-margin
+          - if @issue.next_update_at
+            %p.chronicPreview= @issue.next_update_at.to_s(:long)
+          = f.text_field :next_update_at, :class => 'textInput has-chronicPreview', :required => true, :placeholder => "e.g. tomorrow at 2pm or 2015-12-23 13:40"
+
+    - if @issue.new_record?
       %dl.fieldSet__field.u-margin
         %dt.fieldSet__label= f.label :state
         %dd.fieldSet__input

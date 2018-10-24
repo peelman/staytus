@@ -18,6 +18,8 @@ class Issue < ActiveRecord::Base
 
   attr_accessor :initial_update
   INITIAL_UPDATE_TEXT = "We're currently aware of the issue and are investigating the cause. We will provide further updates as we have them."
+  ETR_TEXT = "6h"
+  NEXT_UPDATE_TIME = DateTime.now()+ 2.hours
 
   STATES = ['investigating', 'identified', 'monitoring', 'resolved']
 

@@ -10,8 +10,15 @@
     %dt Description
     %dd= @issue.title
   %dl.definition.u-margin-top
+    %dt ETR
+    %dd= @issue.estimated_time_to_recovery || "None"
+  %dl.definition.u-margin-top
     %dt State
     %dd= @issue.state.humanize
+    
+  %dl.definition.u-margin-top
+    %dt Next Update
+    %dd= "#{distance_of_time_in_words(DateTime.now(), @issue.next_update_at)} (#{@issue.next_update_at.to_formatted_s(:short)})" || "Not Specified"
 
   - unless @issue.services.empty?
     %dl.definition.u-margin-top
